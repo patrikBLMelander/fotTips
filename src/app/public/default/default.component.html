@@ -1,0 +1,22 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidebar mode='side' opened>
+        <app-public-navbar></app-public-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar>
+                    <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                    <div class="box">
+                        <mat-icon>stars</mat-icon>
+                    </div>
+                    
+                </mat-toolbar>
+                
+            </div>
+            <div class="main">
+                <app-default-main></app-default-main>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
