@@ -11,6 +11,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { DefaultComponent } from './public/default/default.component';
 import { PublicNavbarComponent } from './public/sidebar/public-navbar.component';
 import { DefaultMainComponent } from './public/default-main/default-main.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
 
 
 const MatModules = [
@@ -32,6 +35,8 @@ const MatModules = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MatModules,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
