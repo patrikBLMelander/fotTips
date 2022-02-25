@@ -1,7 +1,123 @@
 <div class="navbar">
-    <button class="login-btn" mat-raised-button color="primary">Register</button>
-    <button class="login-btn" mat-raised-button color="primary">Login</button>
-    <button class="btn" mat-raised-button color="primary">Tippa</button>
-    <button class="btn" mat-raised-button color="primary">Topplista</button>
-    <button class="btn" mat-raised-button color="primary">Mitt Resultat</button>
+    <button
+        class="login-btn"
+        mat-raised-button
+        color="primary"
+        (click)="open(register)"
+    >
+    Register
+    </button>
+    <button
+        class="login-btn"
+        mat-raised-button
+        color="primary"
+        (click)="open(login)"
+    >
+    Login
+    </button>
+    <button  (click)="goToPlaceTips()" class="btn" mat-raised-button color="primary">Tippa</button>
+    <button (click)="goToTopList()" class="btn" mat-raised-button color="primary">Topplista</button>
+    <button (click)="goToMyResult()" class="btn" mat-raised-button color="primary">Mitt Resultat</button>
 </div>
+
+<ng-template #register let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <form #userregister = "ngForm" (ngSubmit) = "onClickLogin(userregister.value)">
+        <div class="mb-3">
+            <label for="show-name">Visningsnamn</label>
+            <div class="input-group">
+            <input
+                id="first-name" type="text"
+                class="form-control"
+                placeholder="Patrik"
+            />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <div class="input-group">
+            <input
+                id="email" type="text"
+                class="form-control"
+                placeholder="email@gmail.com"
+            />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password">Lösenord</label>
+            <div class="input-group">
+            <input
+                id="password" type="password"
+                class="form-control"
+                placeholder="superhemligt"
+            />
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button
+        type="submit"
+        value="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('register')"
+        >
+        Save
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #login let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <form #userlogin = "ngForm" (ngSubmit) = "onClickLogin(userlogin.value)">
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <div class="input-group">
+            <input
+                id="email" type="text"
+                class="form-control"
+                placeholder="email@gmail.com"
+            />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password">Lösenord</label>
+            <div class="input-group">
+            <input
+                id="password" type="password"
+                class="form-control"
+                placeholder="superhemligt"
+            />
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button
+        type="submit"
+        value="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('login')"
+        >
+        Logga in
+        </button>
+    </div>
+</ng-template>
