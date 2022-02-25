@@ -4,43 +4,50 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-public-navbar',
   templateUrl: './public-navbar.component.html',
-  styleUrls: ['./public-navbar.component.sass']
+  styleUrls: ['./public-navbar.component.sass'],
 })
 export class PublicNavbarComponent implements OnInit {
-
   closeResult = '';
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal) {}
 
   open(register: any) {
-    this.modalService.open(register, {ariaLabelledBy: 'modal-basic-title'}).result.then((result: any) => {
-      this.closeResult = `Closed with: ${result}`;
-      console.log(register)
-    }, (reason: any) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modalService
+      .open(register, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result: any) => {
+          this.closeResult = `Closed with: ${result}`;
+          console.log(register);
+        },
+        (reason: any) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
   }
 
-  onClickRegister(){
-    console.log("test")
+  onClickRegister() {
+    console.log('test');
+  }
+
+  public onRegister(formData: FormData): void {
+    console.log('Form: ', formData);
   }
 
   onClickLogin(data: any) {
-    console.log("Entered Email id : " + data.emailid);
+    console.log('Entered Email id : ' + data.emailid);
   }
 
-  goToPlaceTips(){
-    console.log("goToPlaceTips")
+  goToPlaceTips() {
+    console.log('goToPlaceTips');
   }
 
-  goToTopList(){
-    console.log("goToTopList")
+  goToTopList() {
+    console.log('goToTopList');
   }
 
-  goToMyResult(){
-    console.log("goToMyResult")
+  goToMyResult() {
+    console.log('goToMyResult');
   }
-
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -52,7 +59,5 @@ export class PublicNavbarComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
